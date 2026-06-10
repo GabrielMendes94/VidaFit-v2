@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>VidaFit - Treinos e Hábitos</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <header>
+        <h1>VidaFit</h1>
+        <p>Plataforma de Treinos e Hábitos Saudáveis</p>
+        <div id="userArea"></div>
+        <button id="resetBtn" class="btn-small" title="Resetar dados locais">Resetar dados</button>
+      </header>
+
+      <main>
+        <section id="auth" class="card">
+        <h2>Entrar / Registrar</h2>
+        <div class="forms">
+          <form id="loginForm">
+            <h3>Entrar</h3>
+            <input type="email" id="loginEmail" placeholder="Email" required />
+            <input type="password" id="loginPassword" placeholder="Senha" required />
+            <button type="submit" class="primary">Entrar</button>
+          </form>
+
+          <form id="signupForm">
+            <h3>Registrar</h3>
+            <input type="text" id="signupName" placeholder="Nome" required />
+            <input type="email" id="signupEmail" placeholder="Email" required />
+            <input type="password" id="signupPassword" placeholder="Senha" required />
+            <button type="submit" class="primary">Criar conta</button>
+          </form>
+        </div>
+      </section>
+        <section id="app" class="hidden">
+        <div class="grid">
+          <div class="card" id="controls">
+            <h2>Registrar</h2>
+            <form id="workoutForm">
+              <label>Treino</label>
+              <input type="date" id="workoutDate" required />
+              <input type="text" id="workoutType" placeholder="Ex: Corrida, Musculação" required />
+              <input type="number" id="workoutDuration" placeholder="Duração (min)" required />
+              <textarea id="workoutNotes" placeholder="Observações"></textarea>
+              <button type="submit" class="primary">Adicionar treino</button>
+            </form>
+
+            <h3>Histórico de treinos</h3>
+            <ul id="workoutList" class="list"></ul>
+
+            <form id="waterForm">
+              <label>Água (ml)</label>
+              <input type="number" id="waterAmount" placeholder="Ex: 250" required />
+              <input type="date" id="waterDate" />
+              <button type="submit" class="primary">Registrar água</button>
+            </form>
+
+            <h3>Histórico de água</h3>
+            <ul id="waterList" class="list"></ul>
+
+            <form id="goalsForm">
+              <h3>Metas diárias</h3>
+              <label>Meta água (ml)</label>
+              <input type="number" id="goalWater" placeholder="Ex: 2000" />
+              <label>Meta treinos por semana</label>
+              <input type="number" id="goalWorkouts" placeholder="Ex: 3" />
+              <label>Lembrete (min)</label>
+              <input type="number" id="reminderInterval" placeholder="Intervalo para lembrete em minutos" />
+              <button type="submit" class="primary">Salvar metas</button>
+            </form>
+
+            <button id="logoutBtn" class="primary">Sair</button>
+          </div>
+
+          <div class="card" id="dashboard">
+            <h2>Dashboard</h2>
+            <div class="summary">
+              <div>Água hoje: <span id="todayWater">0</span> ml</div>
+              <div>Treinos esta semana: <span id="weekWorkouts">0</span></div>
+            </div>
+
+            <div class="charts">
+              <canvas id="waterChart"></canvas>
+              <canvas id="workoutChart"></canvas>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+
+    <footer>
+      <small>Projeto VidaFit • Versão MVP • Dados salvos no seu navegador (localStorage)</small>
+    </footer>
+
+    <!-- painel de depuração (toggle Shift+D) -->
+    <div id="debug" class="card debug hidden" aria-hidden="true"></div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script type="module" src="app.js"></script>
+  </body>
+</html>

@@ -1,0 +1,42 @@
+:root{--bg:#0f1720;--card:#0b1220;--accent:#6ee7b7;--muted:#9ca3af}
+*{box-sizing:border-box}
+body{font-family:Inter,system-ui,Segoe UI,Roboto,Arial;color:#e6eef6;background:linear-gradient(180deg,#041124 0%,#091826 100%);min-height:100vh;padding:24px}
+.container{width:100%;max-width:960px;margin:0 auto;display:flex;flex-direction:column;min-height:calc(100vh - 48px)}
+/* quando usado em páginas iniciais, centraliza o conteúdo verticalmente */
+.container.center{justify-content:center;align-items:center}
+.card{background:rgba(255,255,255,0.03);padding:18px;border-radius:10px;margin-bottom:16px}
+.hidden{display:none}
+.forms{display:flex;gap:12px}
+form{display:flex;flex-direction:column;gap:8px}
+input,textarea,button{padding:8px;border-radius:6px;border:1px solid rgba(255,255,255,0.06);background:transparent;color:inherit}
+button{padding:8px 12px;border-radius:8px;border:1px solid rgba(255,255,255,0.06);background:transparent;color:inherit;cursor:pointer}
+button.primary{background:var(--accent);color:#04201a;border:none}
+.list{list-style:none;padding:0;margin:8px 0;display:block}
+.list li{display:flex;justify-content:space-between;align-items:center;padding:8px;border-radius:8px;border:1px solid rgba(255,255,255,0.02);margin-bottom:8px}
+.actions{display:flex;gap:6px}
+.btn-small{padding:6px 8px;background:transparent;color:inherit;border-radius:6px;border:1px solid rgba(255,255,255,0.04);cursor:pointer}
+.grid{display:grid;grid-template-columns:320px 1fr;gap:16px;padding:16px}
+#controls{min-height:300px}
+#dashboard .summary{display:flex;gap:24px;margin-bottom:12px}
+.charts{display:flex;flex-direction:column;gap:12px}
+.charts canvas{width:100%;max-width:100%;display:block;margin:0;height:200px}
+
+/* garantir que o card do dashboard comporte os gráficos em telas pequenas */
+#dashboard{overflow:hidden}
+footer{text-align:center;padding:12px;color:var(--muted)}
+
+header{padding:18px 0;text-align:center}
+header h1{margin:0;font-size:28px}
+header p{margin:6px 0 0;color:var(--muted)}
+/* centralizar o card de autenticação quando o app ainda não estiver visível */
+#auth{max-width:760px;margin:0 auto}
+#app.hidden + footer{margin-top:auto}
+main{padding:8px 0}
+
+/* debug panel */
+.debug{position:fixed;right:12px;bottom:12px;max-width:360px;max-height:40vh;overflow:auto;z-index:999}
+.debug pre{white-space:pre-wrap;color:var(--muted);font-size:12px}
+.debug.hidden{display:none}
+
+@media(max-width:480px){.forms{flex-direction:column}}
+@media(max-width:800px){.grid{grid-template-columns:1fr}}
